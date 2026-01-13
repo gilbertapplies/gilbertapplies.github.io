@@ -1,35 +1,56 @@
-// Optional: tiny floating hearts for extra softness
-function createFloatingHeart() {
-  const heart = document.createElement('div');
-  heart.innerHTML = ['💗','💞','💓','💕'][Math.floor(Math.random()*4)];
-  heart.style.position = 'absolute';
-  heart.style.fontSize = (10 + Math.random()*20) + 'px';
-  heart.style.left = Math.random()*100 + 'vw';
-  heart.style.bottom = '-10px';
-  heart.style.opacity = 0.6 + Math.random()*0.4;
-  heart.style.pointerEvents = 'none';
-  heart.style.zIndex = '10';
-  heart.style.animation = `floatUp ${8 + Math.random()*6}s linear forwards`;
+document.addEventListener('DOMContentLoaded', () => {
+  const calendar = document.getElementById('calendar');
+  const addBtn = document.getElementById('add-btn');
+  const input = document.getElementById('new-objective');
+  const list = document.getElementById('objectives-list');
 
-  document.body.appendChild(heart);
+  // Generate ~1 year of squares (simplified: 7 rows × 53 weeks)
+  for (let week = 0; week < 53; week++) {
+    const weekDiv = document.createElement('div');
+    weekDiv.className = 'week';
+    for (let day = 0; day < 7; day++) {
+      const square = document.createElement('div');
+      square.className = 'square level-0';
+      
+      // For demo: mark some random days
+      if (Math.random() < 0.03) {
+        square.className = 'square level-' + Math.floor(Math.random() * 4 + 1);
+      }
+      
+      // Click to toggle (very basic)
+      square.addEventListener('click', () => {
+        const current = square.className.match(/level-(\d)/)?.[1] || '0';
+        const next = (parseInt(current) + 1) % 5;
+        square.className = `square level-${next}`;
+      });
 
-  setTimeout(() => heart.remove(), 15000);
-}
-
-const style = document.createElement('style');
-style.textContent = `
-  @keyframes floatUp {
-    to {
-      transform: translateY(-120vh) rotate(${Math.random()*40-20}deg);
-      opacity: 0;
+      weekDiv.appendChild(square);
     }
+    calendar.appendChild(weekDiv);
   }
-`;
-document.head.appendChild(style);
 
-setInterval(createFloatingHeart, 2200);
+  // Add new objective (very simple – no persistence)
+  addBtn.addEventListener('click', addObjective);
+  input.addEventListener('keypress', e => {
+    if (e.key === 'Enter') addObjective();
+  });
 
-// Start after page load
-window.addEventListener('load', () => {
-  setTimeout(createFloatingHeart, 4000);
+  function addObjective() {
+    const text = input.value.trim();
+    if (!text) return;
+
+    const item = document.createElement('div');
+    item.className = 'objective-item';
+    item.innerHTML = `
+      <span>${text}</span>
+      <button class="delete-btn">×</button>
+    `;
+
+    item.querySelector('.delete-btn').onclick = () => item.remove();
+
+    list.innerHTML = '';
+    list.appendChild(item);
+
+    input.value = '';
+  }
 });

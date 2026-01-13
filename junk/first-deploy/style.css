@@ -1,0 +1,168 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fff0f5 0%, #f8e1e9 50%, #ffe4e9 100%);
+  font-family: 'Poppins', system-ui, sans-serif;
+  color: #4a2c3d;
+  overflow-x: hidden;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.heart-container {
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.heart {
+  font-size: 6.5rem;
+  animation: pulse 2.2s infinite ease-in-out;
+  transform-origin: center;
+}
+
+.heart.small {
+  font-size: 3.8rem;
+  position: absolute;
+  top: -1.2rem;
+  left: -2.8rem;
+  animation-delay: 0.4s;
+  opacity: 0.7;
+}
+
+.heart.tiny {
+  font-size: 2.4rem;
+  position: absolute;
+  bottom: -0.8rem;
+  right: -2.2rem;
+  animation-delay: 0.8s;
+  opacity: 0.55;
+}
+
+h1 {
+  font-size: 3.2rem;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+  color: #d14e7e;
+  opacity: 0;
+  animation: fadeInUp 1.2s forwards 0.6s;
+}
+
+h2 {
+  font-size: 2.8rem;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+  color: #e07aa9;
+  opacity: 0;
+  animation: fadeInUp 1.2s forwards 1.2s;
+}
+
+.you {
+  font-family: 'Caveat', cursive;
+  font-size: 3.8rem;
+  color: #ff80ab;
+  text-shadow: 0 0 10px rgba(255, 105, 180, 0.6);
+}
+
+.message {
+  margin: 2rem 0 3.5rem;
+}
+
+.main-line {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  opacity: 0;
+  animation: fadeIn 1.8s forwards 1.8s;
+}
+
+.big-love {
+  font-family: 'Caveat', cursive;
+  font-size: 7.2rem;
+  color: #e91e63;
+  line-height: 0.9;
+  text-shadow: 0 4px 12px rgba(233, 30, 99, 0.35);
+  opacity: 0;
+  animation: popIn 1.6s forwards 2.2s;
+  transform: scale(0.6);
+}
+
+.small-reminder {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: #777;
+  opacity: 0;
+  animation: fadeIn 2s forwards 3.2s;
+}
+
+.phrases p {
+  font-size: 1.4rem;
+  line-height: 1.8;
+  margin: 1.1rem 0;
+  opacity: 0;
+}
+
+.phrases p:nth-child(odd) {
+  color: #c14f7a;
+}
+
+.phrases p:nth-child(even) {
+  color: #6b3e52;
+}
+
+.footer-heart {
+  margin-top: 4rem;
+  font-size: 1.1rem;
+  color: #a05a7e;
+  opacity: 0;
+  animation: fadeIn 2.5s forwards 7s;
+}
+
+.footer-heart span {
+  color: #ff6b9d;
+  font-size: 1.4rem;
+  margin: 0 0.6rem;
+}
+
+/* Animations */
+@keyframes pulse {
+  0%,100% { transform: scale(1); }
+  50%     { transform: scale(1.15); }
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes popIn {
+  0%   { transform: scale(0.6); opacity: 0; }
+  60%  { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+/* Responsive */
+@media (max-width: 540px) {
+  .big-love { font-size: 5.8rem; }
+  h1 { font-size: 2.6rem; }
+  h2 { font-size: 2.3rem; }
+  .you { font-size: 3.2rem; }
+}
