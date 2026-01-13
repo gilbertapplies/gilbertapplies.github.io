@@ -25,39 +25,32 @@
   <div class="stats">
     <div class="stat">
       <div class="icon">🔥</div>
-      <div class="value" id="streak">0</div>
+      <div class="value">1</div>
       <div class="label">Current Streak</div>
     </div>
     <div class="stat">
       <div class="icon">📅</div>
-      <div class="value" id="this-month">0</div>
+      <div class="value">1</div>
       <div class="label">This Month</div>
     </div>
     <div class="stat">
       <div class="icon">⭕</div>
-      <div class="value" id="total-days">0</div>
+      <div class="value">1</div>
       <div class="label">Total Days</div>
     </div>
     <div class="stat">
       <div class="icon">📈</div>
-      <div class="value" id="year-rate">0%</div>
+      <div class="value">0%</div>
       <div class="label">Yearly Rate</div>
     </div>
   </div>
 
   <div class="contribution-wrapper">
-    <div class="contribution-title" id="contrib-title">
-      0 contributions in the last year
+    <div class="contribution-title">
+      1 contributions in the last year
     </div>
 
-    <div class="calendar-header" id="month-labels"></div>
-    <div class="calendar-grid">
-      <div class="weekdays">
-        <div>Mon</div><div>Tue</div><div>Wed</div><div>Thu</div>
-        <div>Fri</div><div>Sat</div><div>Sun</div>
-      </div>
-      <div class="days" id="days-grid"></div>
-    </div>
+    <div class="calendar" id="calendar"></div>
 
     <div class="legend">
       <span>Less</span>
@@ -80,11 +73,13 @@
       <button id="add-btn">+</button>
     </div>
 
-    <div id="objectives-list" class="objectives-list"></div>
+    <div id="objectives-list" class="objectives-list">
+      <div class="empty">No objectives yet. Add one above to get started!</div>
+    </div>
   </div>
 
   <footer>
-    Click any square to mark today's progress
+    Click any square to track your daily progress
   </footer>
 
 </div>
