@@ -3,82 +3,87 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DailyTrack — Build habits, track progress</title>
+  <title>DailyTrack</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="app-container">
+<div class="app">
 
-    <header>
-      <div class="logo">DailyTrack</div>
-      <div class="tagline">Build habits, track progress</div>
-    </header>
+  <header>
+    <div class="logo">DailyTrack</div>
+    <div class="subtitle">Build habits, track progress</div>
+  </header>
 
-    <main>
-      <h1>Every day counts toward your <span>goals</span></h1>
-      <p class="subtitle">
-        Track your daily objectives with a visual contribution grid.<br>
-        Click any day to mark your progress and watch your consistency grow.
-      </p>
+  <h1>Every day counts toward your <span>goals</span></h1>
 
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="icon">🔥</div>
-          <div class="value">1</div>
-          <div class="label">Current Streak</div>
-        </div>
-        <div class="stat-card">
-          <div class="icon">📅</div>
-          <div class="value">1</div>
-          <div class="label">This Month</div>
-        </div>
-        <div class="stat-card">
-          <div class="icon">⭕</div>
-          <div class="value">1</div>
-          <div class="label">Total Days</div>
-        </div>
-        <div class="stat-card">
-          <div class="icon">📈</div>
-          <div class="value">0%</div>
-          <div class="label">Yearly Rate</div>
-        </div>
-      </div>
+  <p class="description">
+    Track your daily objectives with a visual contribution grid.<br>
+    Click any day to mark your progress and watch your consistency grow.
+  </p>
 
-      <div class="contribution-section">
-        <h2>1 contributions in the last year</h2>
-        <div class="calendar-grid" id="calendar"></div>
-        <div class="legend">
-          <span>Less</span>
-          <div class="squares">
-            <div class="square level-0"></div>
-            <div class="square level-1"></div>
-            <div class="square level-2"></div>
-            <div class="square level-3"></div>
-            <div class="square level-4"></div>
-          </div>
-          <span>More</span>
-        </div>
-      </div>
-
-      <div class="objectives-section">
-        <h2>🎯 Your Objectives</h2>
-        <div class="add-objective">
-          <input type="text" placeholder="Add a new objective..." id="new-objective" />
-          <button id="add-btn">+</button>
-        </div>
-        <div class="objectives-list" id="objectives-list">
-          <p class="empty-state">No objectives yet. Add one above to get started!</p>
-        </div>
-      </div>
-    </main>
-
-    <footer>
-      Click any square to track your daily progress
-    </footer>
-
+  <div class="stats">
+    <div class="stat">
+      <div class="icon">🔥</div>
+      <div class="value">1</div>
+      <div class="label">Current Streak</div>
+    </div>
+    <div class="stat">
+      <div class="icon">📅</div>
+      <div class="value">1</div>
+      <div class="label">This Month</div>
+    </div>
+    <div class="stat">
+      <div class="icon">⭕</div>
+      <div class="value">1</div>
+      <div class="label">Total Days</div>
+    </div>
+    <div class="stat">
+      <div class="icon">📈</div>
+      <div class="value">0%</div>
+      <div class="label">Yearly Rate</div>
+    </div>
   </div>
 
-  <script src="app.js"></script>
+  <div class="contribution-wrapper">
+    <div class="contribution-title">
+      1 contributions in the last year
+    </div>
+
+    <div class="calendar" id="calendar"></div>
+
+    <div class="legend">
+      <span>Less</span>
+      <div class="squares">
+        <div class="square l0"></div>
+        <div class="square l1"></div>
+        <div class="square l2"></div>
+        <div class="square l3"></div>
+        <div class="square l4"></div>
+      </div>
+      <span>More</span>
+    </div>
+  </div>
+
+  <div class="objectives-section">
+    <h2><span class="emoji">🎯</span> Your Objectives</h2>
+
+    <div class="add-row">
+      <input type="text" placeholder="Add a new objective..." id="new-obj-input">
+      <button id="add-btn">+</button>
+    </div>
+
+    <div id="objectives-list" class="objectives-list">
+      <div class="empty">No objectives yet. Add one above to get started!</div>
+    </div>
+  </div>
+
+  <footer>
+    Click any square to track your daily progress
+  </footer>
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>

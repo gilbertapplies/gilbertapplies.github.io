@@ -5,210 +5,232 @@
 }
 
 body {
-  background: #0f0f11;
-  color: #e0e0e5;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: #f9f5f8;
+  color: #333;
+  font-family: system-ui, -apple-system, sans-serif;
   min-height: 100vh;
-  padding: 2rem 1rem;
+  padding: 40px 20px;
+  line-height: 1.45;
 }
 
-.app-container {
-  max-width: 1100px;
+.app {
+  max-width: 980px;
   margin: 0 auto;
 }
 
 header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 50px;
 }
 
 .logo {
-  font-size: 2.8rem;
+  font-size: 3.1rem;
   font-weight: 800;
-  background: linear-gradient(90deg, #00ff9d, #00d4ff);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  display: inline-block;
-}
-
-.tagline {
-  color: #666;
-  margin-top: 0.4rem;
-  font-size: 1.1rem;
-}
-
-h1 {
-  text-align: center;
-  font-size: 2.8rem;
-  margin-bottom: 1rem;
-}
-
-h1 span {
-  color: #00ff9d;
+  color: #ff6ac2;
+  letter-spacing: -1px;
 }
 
 .subtitle {
-  text-align: center;
   color: #888;
-  margin-bottom: 3rem;
-  line-height: 1.5;
+  font-size: 1.15rem;
+  margin-top: 6px;
 }
 
-.stats-grid {
+h1 {
+  font-size: 3.2rem;
+  text-align: center;
+  margin: 0 0 24px;
+  font-weight: 700;
+  color: #222;
+}
+
+h1 span {
+  color: #ff6ac2;
+}
+
+.description {
+  text-align: center;
+  color: #666;
+  font-size: 1.15rem;
+  margin-bottom: 50px;
+  line-height: 1.6;
+}
+
+.stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1.2rem;
-  margin-bottom: 3.5rem;
+  gap: 16px;
+  margin-bottom: 60px;
 }
 
-.stat-card {
-  background: #16181d;
-  border-radius: 12px;
-  padding: 1.4rem;
+.stat {
+  background: white;
+  border-radius: 14px;
+  padding: 24px 16px;
   text-align: center;
-  border: 1px solid #222;
-  transition: transform 0.1s;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  border: 1px solid #f0e8ed;
 }
 
-.stat-card:hover {
-  transform: translateY(-4px);
-}
-
-.stat-card .icon {
-  font-size: 2rem;
-  margin-bottom: 0.6rem;
-}
-
-.stat-card .value {
+.stat .icon {
   font-size: 2.4rem;
+  margin-bottom: 12px;
+}
+
+.stat .value {
+  font-size: 2.6rem;
   font-weight: 700;
-  color: #00ff9d;
+  color: #ff6ac2;
+  line-height: 1;
 }
 
-.stat-card .label {
-  color: #888;
+.stat .label {
+  color: #777;
   font-size: 0.95rem;
-  margin-top: 0.4rem;
+  margin-top: 8px;
 }
 
-.contribution-section {
-  margin: 3rem 0;
+.contribution-wrapper {
+  background: white;
+  border-radius: 14px;
+  padding: 32px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+  margin-bottom: 60px;
 }
 
-.contribution-section h2 {
-  margin-bottom: 1.2rem;
-  color: #aaa;
+.contribution-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 24px;
 }
 
-.calendar-grid {
+.calendar {
   display: grid;
   grid-template-columns: repeat(53, 1fr);
-  grid-auto-rows: 12px;
-  gap: 4px;
-  background: #111;
-  padding: 1.2rem;
-  border-radius: 10px;
-  border: 1px solid #222;
-}
-
-.day-labels {
-  display: grid;
-  grid-template-rows: repeat(7, 12px);
-  gap: 4px;
-  font-size: 0.7rem;
-  color: #444;
-  text-align: right;
-  padding-right: 8px;
-  user-select: none;
-}
-
-.calendar-grid .week {
-  display: grid;
-  gap: 4px;
+  gap: 5px;
+  padding-bottom: 12px;
 }
 
 .square {
-  width: 12px;
-  height: 12px;
-  border-radius: 3px;
-  background: #222;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 4px;
+  background: #ebedf0;
   cursor: pointer;
-  transition: all 0.12s;
+  transition: all 0.13s;
 }
 
 .square:hover {
-  filter: brightness(1.4);
+  transform: scale(1.18);
+  z-index: 2;
 }
 
-.square.level-0 { background: #222; }
-.square.level-1 { background: #004d2c; }
-.square.level-2 { background: #00703a; }
-.square.level-3 { background: #009c52; }
-.square.level-4 { background: #00ff9d; }
+.square.l1 { background: #c9f0d1; }
+.square.l2 { background: #7ce49a; }
+.square.l3 { background: #40c463; }
+.square.l4 { background: #2ea44f; }
 
 .legend {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 0.8rem;
-  margin-top: 1rem;
+  gap: 12px;
   color: #777;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
+  margin-top: 16px;
 }
 
 .legend .squares {
   display: flex;
-  gap: 4px;
+  gap: 5px;
+}
+
+.square.small {
+  width: 14px;
+  height: 14px;
 }
 
 .objectives-section {
-  background: #16181d;
-  border-radius: 12px;
-  padding: 1.8rem;
-  border: 1px solid #222;
+  background: white;
+  border-radius: 14px;
+  padding: 32px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.08);
 }
 
 .objectives-section h2 {
-  margin-bottom: 1.2rem;
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+  color: #222;
 }
 
-.add-objective {
+.emoji {
+  margin-right: 10px;
+}
+
+.add-row {
   display: flex;
-  gap: 0.8rem;
-  margin-bottom: 1.5rem;
+  gap: 12px;
+  margin-bottom: 28px;
 }
 
-.add-objective input {
+.add-row input {
   flex: 1;
-  background: #111;
-  border: 1px solid #333;
-  border-radius: 8px;
-  padding: 0.9rem 1.2rem;
-  color: white;
-  font-size: 1rem;
+  padding: 14px 18px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 1.05rem;
 }
 
-.add-objective button {
-  background: #00ff9d;
-  color: black;
+.add-row button {
+  width: 60px;
+  background: #ff6ac2;
+  color: white;
   border: none;
-  border-radius: 8px;
-  width: 50px;
-  font-size: 1.4rem;
+  border-radius: 10px;
+  font-size: 1.6rem;
   font-weight: bold;
   cursor: pointer;
 }
 
-.objectives-list .empty-state {
-  color: #666;
+.objectives-list .empty {
+  color: #999;
   text-align: center;
-  padding: 2rem 0;
+  padding: 40px 0;
+  font-style: italic;
+}
+
+.objectives-list .item {
+  background: #fff8fb;
+  padding: 14px 18px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-left: 4px solid #ff6ac2;
+}
+
+.objectives-list .item span {
+  flex: 1;
+}
+
+.objectives-list .item button {
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 1.4rem;
+  cursor: pointer;
 }
 
 footer {
   text-align: center;
-  color: #555;
-  margin-top: 4rem;
+  color: #888;
+  margin-top: 60px;
   font-size: 0.95rem;
+}
+
+@media (max-width: 640px) {
+  h1 { font-size: 2.4rem; }
+  .stats { grid-template-columns: 1fr 1fr; }
 }
